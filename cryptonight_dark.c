@@ -166,7 +166,7 @@ void cryptonight_dark_hash(const char* input, char* output, uint32_t len) {
     memcpy(ctx->state.init, ctx->text, INIT_SIZE_BYTE);
     hash_permutation(&ctx->state.hs);
     /*memcpy(hash, &state, 32);*/
-    extra_hashes[ctx->state.hs.b[0] & 3](&ctx->state, 200, output);
+    do_blake_hash(&ctx->state, 200, output);
     oaes_free((OAES_CTX **) &ctx->aes_ctx);
 }
 
