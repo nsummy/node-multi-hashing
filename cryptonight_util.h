@@ -22,7 +22,7 @@ static void do_blake_hash(const void* input, size_t len, char* output) {
     blake256_hash((uint8_t*)output, input, len);
 }
 
-void do_groestl_hash(const void* input, size_t len, char* output) {
+static void do_groestl_hash(const void* input, size_t len, char* output) {
     groestl(input, len * 8, (uint8_t*)output);
 }
 
