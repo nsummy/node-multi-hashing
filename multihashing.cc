@@ -444,8 +444,10 @@ Handle<Value> cryptonight_dark(const Arguments& args) {
 
     if (args.Length() >= 2) {
         if(!args[1]->IsBoolean())
-            return except("Argument 2 should be a boolean");
-        fast = args[1]->ToBoolean()->BooleanValue();
+            fast = args[1]->ToBoolean()->BooleanValue();
+	else
+	    return except("Argument 2 should be a boolean");
+        
     }
 
     Local<Object> target = args[0]->ToObject();
